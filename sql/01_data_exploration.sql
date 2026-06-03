@@ -35,7 +35,7 @@ FROM orders;
 SELECT
 	o.order_status,
 	COUNT(*) AS order_count,
-	ROUND(COUNT(*) * 100 / SUM(COUNT(*)) OVER(), 2) AS pct_of_total
+	ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS pct_of_total
 FROM orders o
 GROUP BY o.order_status
 ORDER BY pct_of_total DESC;
@@ -71,7 +71,7 @@ WHERE s.seller_id IS NULL;
 SELECT COUNT(*) AS unmatched_customers
 FROM orders o 
 LEFT JOIN customers c ON o.customer_id = c.customer_id 
-WHERE o.customer_id IS NULL;
+WHERE c.customer_id IS NULL;
 
 
 
@@ -94,7 +94,7 @@ SELECT
 	 DATE_TRUNC ('month', order_purchase_timestamp) AS rounded_to_month,
 	 COUNT(*) AS order_count,
 	 ROUND (SUM(COUNT(*)) OVER (ORDER BY DATE_TRUNC ('month', order_purchase_timestamp)) / SUM(COUNT(*))OVER () * 100, 2) AS cumulative_percentage
-FROM delivered_orders t        
+FROM orders o         
 GROUP BY  DATE_TRUNC ('month', order_purchase_timestamp)
 ORDER BY rounded_to_month
 ;
