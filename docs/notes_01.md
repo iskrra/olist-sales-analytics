@@ -1,7 +1,7 @@
 # Day 1 — Data Exploration Notes
 
 ## What I Did
-Before doing ting any real analysis, I used this day for getting familiar with the dataset — checking row counts, understanding the date range, finding data quality issues, and figuring out which portion of the data is actually clean  enough to analyse. As not to build analysis on top of misunderstood data.
+Before doing any real analysis, I used this day for getting familiar with the dataset — checking row counts, understanding the date range, finding data quality issues, and figuring out which portion of the data is actually clean  enough to analyse. As not to build analysis on top of misunderstood data.
 
 ## What the Data Looks Like
 The dataset contains 9 tables covering orders, customers, products, sellers, payments, and reviews from the Olist Brazilian e-commerce platform. Row counts match the Kaggle documentation (successful import).
